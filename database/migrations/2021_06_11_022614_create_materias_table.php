@@ -15,7 +15,7 @@ class CreateMateriasTable extends Migration
     {
         Schema::create('materias', function (Blueprint $table) {
             $table->id();
-            $table->text('nombre');
+            $table->string('nombre');
             $table->date('horario');
             $table->integer('min_participantes');
             $table->integer('max_participantes');

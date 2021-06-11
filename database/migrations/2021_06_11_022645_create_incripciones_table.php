@@ -14,7 +14,7 @@ class CreateIncripcionesTable extends Migration
     public function up()
     {
         Schema::create('incripciones', function (Blueprint $table) {
-            $table->foreignId('id')->unsigned();
+            $table->id();
 
             $table->foreignId('materia_id');
             $table->foreignId('alumno_id');
