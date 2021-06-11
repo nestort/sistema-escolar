@@ -25,3 +25,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('periodos', App\Http\Controllers\PeriodoController::class);
 
 Route::resource('alumnos', App\Http\Controllers\alumnoController::class);
+
+Route::resource('usuarios', App\Http\Controllers\usuarioController::class);
