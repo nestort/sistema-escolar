@@ -5,7 +5,7 @@
           <li class="breadcrumb-item">
              <a href="{!! route('alumnos.index') !!}">Alumno</a>
           </li>
-          <li class="breadcrumb-item active">Edit</li>
+          <li class="breadcrumb-item active">Editar</li>
         </ol>
     <div class="container-fluid">
          <div class="animated fadeIn">
@@ -15,7 +15,7 @@
                       <div class="card">
                           <div class="card-header">
                               <i class="fa fa-edit fa-lg"></i>
-                              <strong>Edit Alumno</strong>
+                              <strong>Editar Alumno</strong>
                           </div>
                           <div class="card-body">
                               {!! Form::model($alumno, ['route' => ['alumnos.update', $alumno->id], 'method' => 'patch']) !!}

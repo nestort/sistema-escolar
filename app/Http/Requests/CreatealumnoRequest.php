@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\alumno;
+use App\Models\Alumno;
 
 class CreatealumnoRequest extends FormRequest
 {
@@ -25,6 +25,6 @@ class CreatealumnoRequest extends FormRequest
      */
     public function rules()
     {
-        return alumno::$rules;
+        return Alumno::$rules;
     }
 }

@@ -30,7 +30,7 @@
 
 <!-- User Id Field -->
 <div class="form-group">
-    {!! Form::label('user_id', 'User Id:') !!}
-    <p>{{ $alumno->user_id }}</p>
+    {!! Form::label('user_id', 'Nombre de usuario:') !!}
+    <p>{{ $alumno->user->name }}</p>
 </div>
 

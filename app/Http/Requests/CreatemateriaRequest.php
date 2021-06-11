@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\materia;
+use App\Models\Materia;
 
 class CreatemateriaRequest extends FormRequest
 {
@@ -25,6 +25,6 @@ class CreatemateriaRequest extends FormRequest
      */
     public function rules()
     {
-        return materia::$rules;
+        return Materia::$rules;
     }
 }

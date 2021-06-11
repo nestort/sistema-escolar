@@ -2,13 +2,10 @@
     <table class="table table-striped" id="alumnos-table">
         <thead>
             <tr>
-                <th>Nombres</th>
-                <th>Apepaterno</th>
-                <th>Apematerno</th>
-                <th>Carrera</th>
-                <th>Fecha Nac</th>
-                <th>usuario</th>
-                <th colspan="3">Action</th>
+                <th>Nombre(s)</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>                
+                <th colspan="3">Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -17,9 +14,7 @@
                     <td>{{ $alumno->nombres }}</td>
                     <td>{{ $alumno->apepaterno }}</td>
                     <td>{{ $alumno->apematerno }}</td>
-                    <td>{{ $alumno->carrera }}</td>
-                    <td>{{ $alumno->fecha_nac }}</td>
-                    <td>{{ $alumno->user->name }}</td>
+                    
                     <td>
                         {!! Form::open(['route' => ['alumnos.destroy', $alumno->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
