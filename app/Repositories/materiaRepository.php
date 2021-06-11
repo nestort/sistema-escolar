@@ -2,16 +2,16 @@
 
 namespace App\Repositories;
 
-use App\Models\materia;
+use App\Models\Materia;
 use App\Repositories\BaseRepository;
 
 /**
- * Class materiaRepository
+ * Class MateriaRepository
  * @package App\Repositories
  * @version June 11, 2021, 3:57 am UTC
 */
 
-class materiaRepository extends BaseRepository
+class MateriaRepository extends BaseRepository
 {
     /**
      * @var array
@@ -39,6 +39,6 @@ class materiaRepository extends BaseRepository
      **/
     public function model()
     {
-        return materia::class;
+        return Materia::class;
     }
 }

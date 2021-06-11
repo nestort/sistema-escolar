@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property integer $alumno_id
  * @property string $status
  */
-class inscripcion extends Model
+class Inscripcion extends Model
 {
 
     use HasFactory;

@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\inscripcion;
+use App\Models\Inscripcion;
 use App\Repositories\BaseRepository;
 
 /**
@@ -37,6 +37,6 @@ class inscripcionRepository extends BaseRepository
      **/
     public function model()
     {
-        return inscripcion::class;
+        return Inscripcion::class;
     }
 }

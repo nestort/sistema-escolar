@@ -3,34 +3,36 @@
         <thead>
             <tr>
                 <th>Nombres</th>
-        <th>Apepaterno</th>
-        <th>Apematerno</th>
-        <th>Carrera</th>
-        <th>Fecha Nac</th>
-        <th>User Id</th>
+                <th>Apepaterno</th>
+                <th>Apematerno</th>
+                <th>Carrera</th>
+                <th>Fecha Nac</th>
+                <th>usuario</th>
                 <th colspan="3">Action</th>
             </tr>
         </thead>
         <tbody>
-        @foreach($alumnos as $alumno)
-            <tr>
-                <td>{{ $alumno->nombres }}</td>
-            <td>{{ $alumno->apepaterno }}</td>
-            <td>{{ $alumno->apematerno }}</td>
-            <td>{{ $alumno->carrera }}</td>
-            <td>{{ $alumno->fecha_nac }}</td>
-            <td>{{ $alumno->user_id }}</td>
-                <td>
-                    {!! Form::open(['route' => ['alumnos.destroy', $alumno->id], 'method' => 'delete']) !!}
-                    <div class='btn-group'>
-                        <a href="{{ route('alumnos.show', [$alumno->id]) }}" class='btn btn-ghost-success'><i class="fa fa-eye"></i></a>
-                        <a href="{{ route('alumnos.edit', [$alumno->id]) }}" class='btn btn-ghost-info'><i class="fa fa-edit"></i></a>
-                        {!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-ghost-danger', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                    </div>
-                    {!! Form::close() !!}
-                </td>
-            </tr>
-        @endforeach
+            @foreach ($alumnos as $alumno)
+                <tr>
+                    <td>{{ $alumno->nombres }}</td>
+                    <td>{{ $alumno->apepaterno }}</td>
+                    <td>{{ $alumno->apematerno }}</td>
+                    <td>{{ $alumno->carrera }}</td>
+                    <td>{{ $alumno->fecha_nac }}</td>
+                    <td>{{ $alumno->user->name }}</td>
+                    <td>
+                        {!! Form::open(['route' => ['alumnos.destroy', $alumno->id], 'method' => 'delete']) !!}
+                        <div class='btn-group'>
+                            <a href="{{ route('alumnos.show', [$alumno->id]) }}" class='btn btn-ghost-success'><i
+                                    class="fa fa-eye"></i></a>
+                            <a href="{{ route('alumnos.edit', [$alumno->id]) }}" class='btn btn-ghost-info'><i
+                                    class="fa fa-edit"></i></a>
+                            {!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-ghost-danger', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                        </div>
+                        {!! Form::close() !!}
+                    </td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
 </div>

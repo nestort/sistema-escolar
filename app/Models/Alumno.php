@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string $fecha_nac
  * @property integer $user_id
  */
-class alumno extends Model
+class Alumno extends Model
 {
 
     use HasFactory;

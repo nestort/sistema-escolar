@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property integer $max_participantes
  * @property integer $periodo_id
  */
-class materia extends Model
+class Materia extends Model
 {
 
     use HasFactory;

@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\alumno;
+use App\Models\Alumno;
 use App\Repositories\BaseRepository;
 
 /**
