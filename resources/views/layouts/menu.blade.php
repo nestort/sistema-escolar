@@ -16,3 +16,9 @@
         <span>Usuarios</span>
     </a>
 </li>
+<li class="nav-item {{ Request::is('materias*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('materias.index') }}">
+        <i class="nav-icon icon-cursor"></i>
+        <span>Materias</span>
+    </a>
+</li>
