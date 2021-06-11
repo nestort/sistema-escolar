@@ -29,3 +29,5 @@ Route::resource('alumnos', App\Http\Controllers\alumnoController::class);
 Route::resource('usuarios', App\Http\Controllers\usuarioController::class);
 
 Route::resource('materias', App\Http\Controllers\materiaController::class);
+
+Route::resource('inscripcions', App\Http\Controllers\inscripcionController::class);
