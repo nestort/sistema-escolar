@@ -55,5 +55,6 @@ class Periodo extends Model
         'updated_at' => 'nullable'
     ];
 
+   
     
 }

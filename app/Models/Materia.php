@@ -61,7 +61,7 @@ class Materia extends Model
      */
     public static $rules = [
         'nombre' => 'required|string|max:255',
-        'horario' => 'required',
+        'horario' => 'nullable',
         'min_participantes' => 'required|integer',
         'max_participantes' => 'required|integer',
         'periodo_id' => 'required',

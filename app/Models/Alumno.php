@@ -67,8 +67,7 @@ class Alumno extends Model
         'apepaterno' => 'required|string|max:100',
         'apematerno' => 'required|string|max:100',
         'carrera' => 'required|string|max:100',
-        'fecha_nac' => 'required',
-        'user_id' => 'required',
+        'fecha_nac' => 'required',        
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];

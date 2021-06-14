@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreatealumnoRequest;
 use App\Http\Requests\UpdatealumnoRequest;
 use App\Repositories\alumnoRepository;
+use App\Repositories\usuarioRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
@@ -14,10 +15,13 @@ class alumnoController extends AppBaseController
 {
     /** @var  alumnoRepository */
     private $alumnoRepository;
+      /** @var  usuarioRepository */
+    private $usuarioRepository;
 
-    public function __construct(alumnoRepository $alumnoRepo)
+    public function __construct(alumnoRepository $alumnoRepo,usuarioRepository $usuarioRepository)
     {
         $this->alumnoRepository = $alumnoRepo;
+        $this->usuarioRepository = $usuarioRepository;
     }
 
     /**
@@ -56,6 +60,13 @@ class alumnoController extends AppBaseController
     {
         $input = $request->all();
 
+        $input['rol'] = 'alumno';
+        $input['password'] = bcrypt($input['password']);
+
+        $usuario = $this->usuarioRepository->create($input);
+
+        $input['user_id'] = $usuario->id;
+
         $alumno = $this->alumnoRepository->create($input);
 
         Flash::success('Alumno saved successfully.');
@@ -79,8 +90,9 @@ class alumnoController extends AppBaseController
 
             return redirect(route('alumnos.index'));
         }
+        $usuario = $this->usuarioRepository;
 
-        return view('alumnos.show')->with('alumno', $alumno);
+        return view('alumnos.show',compact(['alumno','usuario']));
     }
 
     /**
@@ -98,9 +110,13 @@ class alumnoController extends AppBaseController
             Flash::error('Alumno not found');
 
             return redirect(route('alumnos.index'));
-        }
+        }        
+        
 
-        return view('alumnos.edit')->with('alumno', $alumno);
+        $usuario = $this->usuarioRepository->find($alumno->user_id);
+
+
+        return view('alumnos.edit',compact(['alumno','usuario']));        
     }
 
     /**
@@ -113,7 +129,7 @@ class alumnoController extends AppBaseController
      */
     public function update($id, UpdatealumnoRequest $request)
     {
-        $alumno = $this->alumnoRepository->find($id);
+        $alumno = $this->alumnoRepository->find($id);        
 
         if (empty($alumno)) {
             Flash::error('Alumno not found');
@@ -121,9 +137,16 @@ class alumnoController extends AppBaseController
             return redirect(route('alumnos.index'));
         }
 
-        $alumno = $this->alumnoRepository->update($request->all(), $id);
+        $usuario = $this->usuarioRepository->find($alumno->user_id);
+        
+        $input = $request->all();
+        $input['user_id'] = $usuario->id;
+        $input['password'] = bcrypt($input['password']);
 
-        Flash::success('Alumno updated successfully.');
+        $alumno = $this->alumnoRepository->update($input, $id);
+        $usuario = $this->usuarioRepository->update($input,$alumno->user_id);
+
+        Flash::success('Se actualizó correctamente.');
 
         return redirect(route('alumnos.index'));
     }

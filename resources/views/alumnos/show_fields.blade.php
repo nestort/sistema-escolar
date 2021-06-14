@@ -28,9 +28,15 @@
     <p>{{ $alumno->fecha_nac }}</p>
 </div>
 
-<!-- User Id Field -->
+<!-- User email -->
 <div class="form-group">
-    {!! Form::label('user_id', 'Nombre de usuario:') !!}
+    {!! Form::label('user', 'Correo:') !!}
+    <p>{{ $alumno->user->email }}</p>
+</div>
+
+<!-- User name -->
+<div class="form-group">
+    {!! Form::label('user', 'Nombre de usuario:') !!}
     <p>{{ $alumno->user->name }}</p>
 </div>
 

@@ -6,14 +6,22 @@ use App\Http\Requests\CreatemateriaRequest;
 use App\Http\Requests\UpdatemateriaRequest;
 use App\Repositories\materiaRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Periodo;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use DB;
+use Carbon\Carbon;
+
 
 class materiaController extends AppBaseController
 {
     /** @var  materiaRepository */
     private $materiaRepository;
+
+    /** @var  periodoRepository */
+    private $periodoRepository;
+
 
     public function __construct(materiaRepository $materiaRepo)
     {
@@ -41,8 +49,13 @@ class materiaController extends AppBaseController
      * @return Response
      */
     public function create()
-    {
-        return view('materias.create');
+    {   
+        $periodos = Periodo::select(
+            DB::raw("CONCAT(id,'. Del:',fecha_inicio,'. Al: ',fecha_fin) AS periodo_completo"),'id')
+            ->whereDate('fecha_fin','>',Carbon::now())            
+            ->pluck('periodo_completo', 'id');
+
+        return view('materias.create',compact('periodos'));
     }
 
     /**

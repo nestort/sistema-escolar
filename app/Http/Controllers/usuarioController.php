@@ -56,6 +56,8 @@ class usuarioController extends AppBaseController
     {
         $input = $request->all();
 
+
+
         $usuario = $this->usuarioRepository->create($input);
 
         Flash::success('Usuario saved successfully.');
@@ -120,8 +122,11 @@ class usuarioController extends AppBaseController
 
             return redirect(route('usuarios.index'));
         }
+        $input=$request->all();
+        $input['password']=bcrypt($input['password']);
+        
 
-        $usuario = $this->usuarioRepository->update($request->all(), $id);
+        $usuario = $this->usuarioRepository->update($input, $id);
 
         Flash::success('Usuario updated successfully.');
 

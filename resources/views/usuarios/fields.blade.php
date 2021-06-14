@@ -13,7 +13,7 @@
 <!-- rol Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('rol', 'Rol:') !!}
-    {!! Form::select('rol', ['alumno'=>'Alumno','administrador'=>'Administrador','maestro'=>'Maestro'], null,['class' => 'form-control','placeholde'=>'Asigne un Rol']) !!}
+    {!! Form::select('rol', ['administrador'=>'Administrador','maestro'=>'Maestro'], null,['class' => 'form-control','placeholde'=>'Asigne un Rol']) !!}
 </div>
 
 <!-- Password Field -->
