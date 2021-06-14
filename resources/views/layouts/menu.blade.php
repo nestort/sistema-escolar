@@ -25,6 +25,6 @@
 <li class="nav-item {{ Request::is('inscripcions*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('inscripcions.index') }}">
         <i class="nav-icon icon-badge"></i>
-        <span>Inscripcions</span>
+        <span>Inscripciones</span>
     </a>
 </li>
